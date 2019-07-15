@@ -10,7 +10,7 @@ public class PossibilitiesTotalingOneHundred {
     private static final String PLUS = "+";
     private static final String MINUS = "-";
 
-    private static final List<Integer> numbersList = new ArrayList<>(Arrays.asList(1, 2, 3));
+    private static final List<Integer> numbersList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
 
     private static final List<String> operands = new ArrayList<>(Arrays.asList("", PLUS, MINUS));
     private static final List<List<String>> operandCombinations = new ArrayList<>();
@@ -29,7 +29,29 @@ public class PossibilitiesTotalingOneHundred {
     private static void createOperandCombinations() {
         for (String operand1: operands) {
             for (String operand2: operands) {
-                operandCombinations.add(new ArrayList<>(Arrays.asList(operand1, operand2)));
+                for (String operand3: operands) {
+                    for (String operand4: operands) {
+                        for (String operand5: operands) {
+                            for (String operand6: operands) {
+                                for (String operand7: operands) {
+                                    for (String operand8: operands) {
+                                        operandCombinations.add(new ArrayList<>(Arrays.asList(
+                                                operand1,
+                                                operand2,
+                                                operand3,
+                                                operand4,
+                                                operand5,
+                                                operand6,
+                                                operand7,
+                                                operand8
+                                        )));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
         }
     }
@@ -60,7 +82,6 @@ public class PossibilitiesTotalingOneHundred {
 
     private static void calculateTotals() {
         for(List<String> splitEquation : splittedEquations) {
-            System.out.print(splitEquation + " = ");
             int total = Integer.parseInt(splitEquation.get(0));
 
             for(int z = 2; z < splitEquation.size(); z += 2) {
@@ -76,7 +97,9 @@ public class PossibilitiesTotalingOneHundred {
                 }
             }
 
-            System.out.println(total + "\n");
+            if(total == 100) {
+                System.out.println(splitEquation + "\n");
+            }
         }
     }
 }
