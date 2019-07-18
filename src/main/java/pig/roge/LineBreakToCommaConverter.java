@@ -1,3 +1,5 @@
+package pig.roge;
+
 public class LineBreakToCommaConverter {
     private static final String lineBreakDelimitedList = "Java\n" +
             "J2EE\n" +
