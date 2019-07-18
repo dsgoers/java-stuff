@@ -1,13 +1,13 @@
 package pig.roge;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import com.google.common.collect.Lists;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Java8Stuff {
     private static final String ROGE = "Roge";
-    private static final List<String> PIGS_LIST = new ArrayList<>(Arrays.asList(ROGE, "Daisy", "Satu"));
+    private static final List<String> PIGS_LIST = Lists.newArrayList(ROGE, "Daisy", "Satu");
 
     public static void main(String [] args) {
         PIGS_LIST.forEach(System.out::print);
