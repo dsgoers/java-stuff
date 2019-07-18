@@ -5,11 +5,14 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Java8Stuff {
-    private static final String ROGE = "Roge";
-    private static final List<String> PIGS_LIST = Lists.newArrayList(ROGE, "Daisy", "Satu");
+public final class Java8Stuff {
+    private Java8Stuff() { }
 
-    public static void main(String [] args) {
+    private static final String ROGE = "Roge";
+    private static final List<String> PIGS_LIST = Lists.newArrayList(
+            ROGE, "Daisy", "Satu");
+
+    public static void main(final String[] args) {
         PIGS_LIST.forEach(System.out::print);
         System.out.println();
 
@@ -20,7 +23,8 @@ public class Java8Stuff {
         System.out.println();
 
         List<String> filteredPigsList = PIGS_LIST.stream().filter((pig) -> {
-            if(pig.equals(ROGE)) {
+            if (pig.equals(ROGE)) {
+                System.out.println("Removed pig");
                 return false;
             } else {
                 return true;
