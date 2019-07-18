@@ -1,7 +1,7 @@
 package pig.roge;
 
-public class LineBreakToCommaConverter {
-    private static final String LINE_BREAK_DELIMTED_LIST = "Java\n"
+public final class LineBreakToCommaConverter {
+    private static final String LINE_BREAK_DELIMITED_LIST = "Java\n"
             + "J2EE\n"
             + "Maven\n"
             + "Wildfly AS\n"
@@ -27,11 +27,20 @@ public class LineBreakToCommaConverter {
             + "IntelliJ\n"
             + "RubyMine";
 
-    private String execute() {
-        return LINE_BREAK_DELIMTED_LIST.replace("\n", ", ");
+    private final String list;
+
+    public LineBreakToCommaConverter(final String newList) {
+        this.list = newList;
+    }
+
+    public String execute() {
+        return list.replace("\n", ", ");
     }
 
     public static void main(final String[] args) {
-        System.out.println(new LineBreakToCommaConverter().execute());
+        System.out.println(
+                new LineBreakToCommaConverter(LINE_BREAK_DELIMITED_LIST)
+                        .execute()
+        );
     }
 }
