@@ -12,11 +12,14 @@ public class LineBreakToCommaConverterTests {
 
     @Before
     public void setup() {
-        lineBreakToCommaConverter = new LineBreakToCommaConverter(lineBreakDelimitedList);
+        lineBreakToCommaConverter = new LineBreakToCommaConverter(
+                lineBreakDelimitedList
+        );
     }
 
     @Test
     public void testLineBreaksReplacedWithCommas() {
-        Assert.assertEquals(lineBreakToCommaConverter.execute(), commandDelimitedList);
+        Assert.assertEquals(lineBreakToCommaConverter.execute(),
+                commandDelimitedList);
     }
 }
