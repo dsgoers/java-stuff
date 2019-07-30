@@ -28,7 +28,7 @@ public final class CodilityChallengeOne {
         return longestNeckLaceLength;
     }
 
-    public static int necklaceLength(final int initialIndex,
+    private static int necklaceLength(final int initialIndex,
                                      final int value,
                                      final int[] array) {
         if (value != initialIndex) {

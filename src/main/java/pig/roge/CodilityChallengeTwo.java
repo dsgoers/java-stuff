@@ -15,7 +15,6 @@ public final class CodilityChallengeTwo {
 
     public static boolean isSortableInOneSwapOrLess(final int[] array) {
         for (int x = 0; x < array.length; x++) {
-
             if (hasTwoOrMoreUnequalSmallerValuesAhead(x, array)) {
                 return false;
             }
@@ -24,7 +23,7 @@ public final class CodilityChallengeTwo {
         return true;
     }
 
-    public static boolean hasTwoOrMoreUnequalSmallerValuesAhead(
+    private static boolean hasTwoOrMoreUnequalSmallerValuesAhead(
             final int index, final int[] array) {
         int value = array[index];
         int smallerValueAhead = -1;
