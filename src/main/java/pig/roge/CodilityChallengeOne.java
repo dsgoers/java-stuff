@@ -15,9 +15,12 @@ public final class CodilityChallengeOne {
         int longestNeckLaceLength = 0;
 
         for (int x = 0; x < array.length; x++) {
-            if (array[x] != -1) {
-                longestNeckLaceLength = Math.max(longestNeckLaceLength,
-                        necklaceLength(x, array)
+            int value = array[x];
+
+            if (value != -1) {
+                longestNeckLaceLength = Math.max(
+                        longestNeckLaceLength,
+                        necklaceLength(x, value, array)
                 );
             }
         }
@@ -26,19 +29,15 @@ public final class CodilityChallengeOne {
     }
 
     public static int necklaceLength(final int initialIndex,
+                                     final int value,
                                      final int[] array) {
-        int index = initialIndex;
-        int length = 0;
-        int value = array[index];
+        if (value != initialIndex) {
+            int newValue = array[value];
+            array[value] = -1;
 
-        while (value != initialIndex) {
-            length++;
-            value = array[index];
-            array[index] = -1;
-            index = value;
-
+            return 1 + necklaceLength(initialIndex, newValue, array);
         }
 
-        return length;
+        return 1;
     }
 }

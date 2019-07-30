@@ -14,6 +14,13 @@ public class CodilityChallengeOneTests {
     }
 
     @Test
+    public void testWithArrayOfOneElement() {
+        int[] array = {0};
+
+        Assert.assertEquals(longestNeckLaceLength(array), 1);
+    }
+
+    @Test
     public void testWithEmptyArray() {
         int[] array = {};
 
