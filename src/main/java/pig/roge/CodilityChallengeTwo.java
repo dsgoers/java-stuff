@@ -1,5 +1,8 @@
 package pig.roge;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public final class CodilityChallengeTwo {
     private CodilityChallengeTwo() { }
 
@@ -25,16 +28,17 @@ public final class CodilityChallengeTwo {
 
     private static boolean hasTwoOrMoreUnequalSmallerValuesAhead(
             final int index, final int[] array) {
-        int value = array[index];
-        int smallerValueAhead = -1;
+        int subjectValue = array[index];
+        Integer smallerValueAhead = null;
 
-        for (int x = index + 1; x < array.length; x++) {
-            int valueAtIndex = array[x];
+        for (int aheadValue: Arrays.stream(array)
+                .skip(index).boxed().collect(Collectors.toList())) {
 
-            if (valueAtIndex < value) {
-                if (smallerValueAhead == -1) {
-                    smallerValueAhead = valueAtIndex;
-                } else if (smallerValueAhead != valueAtIndex) {
+            if (aheadValue < subjectValue) {
+                if (smallerValueAhead == null) {
+                    smallerValueAhead = aheadValue;
+
+                } else if (smallerValueAhead != aheadValue) {
                     return true;
                 }
 
