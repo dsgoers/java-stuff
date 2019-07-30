@@ -1,32 +1,37 @@
 package pig.roge;
 
-public class CodilityChallengeOne {
-    public static void main(final String[] args) {
-        int[] A = {5, 4, 0, 3, 1, 6, 2};
-        int[] B = {};
+public final class CodilityChallengeOne {
+    private CodilityChallengeOne() { }
 
-        System.out.println(longestNeckLaceLength(A));
-        System.out.println(longestNeckLaceLength(B));
+    public static void main(final String[] args) {
+        int[] arrayA = {5, 4, 0, 3, 1, 6, 2};
+        int[] arrayB = {};
+
+        System.out.println(longestNeckLaceLength(arrayA));
+        System.out.println(longestNeckLaceLength(arrayB));
     }
 
-    public static int longestNeckLaceLength(int[] array) {
+    public static int longestNeckLaceLength(final int[] array) {
         int longestNeckLaceLength = 0;
 
-        for(int x = 0; x < array.length; x++) {
+        for (int x = 0; x < array.length; x++) {
             if (array[x] != -1) {
-                longestNeckLaceLength = Math.max(longestNeckLaceLength, necklaceLength(x, array));
+                longestNeckLaceLength = Math.max(longestNeckLaceLength,
+                        necklaceLength(x, array)
+                );
             }
         }
 
         return longestNeckLaceLength;
     }
 
-    public static int necklaceLength(int initialIndex, int[] array) {
+    public static int necklaceLength(final int initialIndex,
+                                     final int[] array) {
         int index = initialIndex;
         int length = 0;
         int value = array[index];
 
-        while(value != initialIndex) {
+        while (value != initialIndex) {
             length++;
             value = array[index];
             array[index] = -1;
